@@ -72,7 +72,7 @@ function displayNumber(JSdigit, HTMLdigit) {
   segments = HTMLdigit.children;
   for (let i = 0; i < segments.length; i++) {
     if (JSdigit.returnArray()[i] == true) {
-      segments[i].style.display = "absolute";
+      segments[i].style.display = "block";
     } else {
       segments[i].style.display = "none";
     }

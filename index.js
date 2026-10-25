@@ -1,28 +1,21 @@
 // digit construction
-function Digit(u, ul, ur, c, bl, br, b) {
-  this.u = u;
-  this.ul = ul;
-  this.ur = ur;
-  this.c = c;
-  this.bl = bl;
-  this.br = br;
-  this.b = b;
+class Digit {
+  constructor(u, ul, ur, c, bl, br, b) {
+    this.u = u;
+    this.ul = ul;
+    this.ur = ur;
+    this.c = c;
+    this.bl = bl;
+    this.br = br;
+    this.b = b;
+  }
+
+  returnArray() {
+    return [this.u, this.ul, this.ur, this.c, this.bl, this.br, this.b];
+  }
 }
 
-// digits
-digit0 = Digit(1, 1, 1, 0, 1, 1, 1);
-digit1 = Digit(0, 0, 1, 0, 0, 1, 0);
-digit2 = Digit(1, 0, 1, 1, 1, 0, 1);
-digit3 = Digit(1, 0, 1, 1, 0, 1, 1);
-digit4 = Digit(0, 1, 1, 1, 0, 1, 0);
-digit5 = Digit(1, 1, 0, 1, 0, 1, 1);
-digit6 = Digit(1, 1, 0, 1, 1, 1, 1);
-digit7 = Digit(1, 0, 1, 0, 0, 1, 0);
-digit8 = Digit(1, 1, 1, 1, 1, 1, 1);
-digit9 = Digit(1, 1, 1, 1, 0, 1, 1);
-
-digitArray = [
-  digit0,
+let digit0,
   digit1,
   digit2,
   digit3,
@@ -32,17 +25,67 @@ digitArray = [
   digit7,
   digit8,
   digit9,
-];
+  digitArray,
+  leftTensDigit,
+  leftOnesDigit,
+  rightTensDigit,
+  rightOnesDigit;
 
-leftTensDigit = document.getElementById("leftTens");
-leftOnesDigit = document.getElementById("leftOnes");
-rightTensDigit = document.getElementById("rightTens");
-rightOnesDigit = document.getElementById("rightOnes");
+document.addEventListener("DOMContentLoaded", function () {
+  // digits
+  digit0 = new Digit(true, true, true, false, true, true, true);
+  digit1 = new Digit(false, false, true, false, false, true, false);
+  digit2 = new Digit(true, false, true, true, true, false, true);
+  digit3 = new Digit(true, false, true, true, false, true, true);
+  digit4 = new Digit(false, true, true, true, false, true, false);
+  digit5 = new Digit(true, true, false, true, false, true, true);
+  digit6 = new Digit(true, true, false, true, true, true, true);
+  digit7 = new Digit(true, false, true, false, false, true, false);
+  digit8 = new Digit(true, true, true, true, true, true, true);
+  digit9 = new Digit(true, true, true, true, false, true, true);
 
-function displayNumber(Digit, segmentArray) {}
+  digitArray = [
+    digit0,
+    digit1,
+    digit2,
+    digit3,
+    digit4,
+    digit5,
+    digit6,
+    digit7,
+    digit8,
+    digit9,
+  ];
+
+  leftTensDigit = document.getElementById("leftTens");
+  leftOnesDigit = document.getElementById("leftOnes");
+  rightTensDigit = document.getElementById("rightTens");
+  rightOnesDigit = document.getElementById("rightOnes");
+});
+
+function displayNumber(JSdigit, HTMLdigit) {
+  console.log(JSdigit);
+  segments = HTMLdigit.children;
+  for (let i = 0; i < segments.length; i++) {
+    console.log(JSdigit.returnArray());
+    if (JSdigit.returnArray()[i] == true) {
+      console.log("This segment is true");
+      segments[i].style.display = "absolute";
+    } else {
+      segments[i].style.display = "none";
+    }
+  }
+}
 
 function incrementLeft() {}
 
 function incrementRight() {}
 
-function resetScoreboard() {}
+function resetScoreboard() {
+  displayNumber(digit0, leftTensDigit);
+  displayNumber(digit0, leftOnesDigit);
+  displayNumber(digit0, rightTensDigit);
+  displayNumber(digit0, rightOnesDigit);
+}
+
+// resetScoreboard();

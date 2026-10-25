@@ -2,6 +2,13 @@ h1 {
   text-align: center;
 }
 
-h1 {
+* {
   font-family: sans-serif;
+}
+
+.outer {
+  width: 100%;
+  font-size: xx-large;
+  display: inline-flex;
+  justify-content: space-between;
 }

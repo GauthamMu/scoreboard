@@ -19,9 +19,30 @@ digit5 = Digit(1, 1, 0, 1, 0, 1, 1);
 digit6 = Digit(1, 1, 0, 1, 1, 1, 1);
 digit7 = Digit(1, 0, 1, 0, 0, 1, 0);
 digit8 = Digit(1, 1, 1, 1, 1, 1, 1);
+digit9 = Digit(1, 1, 1, 1, 0, 1, 1);
+
+digitArray = [
+  digit0,
+  digit1,
+  digit2,
+  digit3,
+  digit4,
+  digit5,
+  digit6,
+  digit7,
+  digit8,
+  digit9,
+];
+
+leftTensDigit = document.getElementById("leftTens");
+leftOnesDigit = document.getElementById("leftOnes");
+rightTensDigit = document.getElementById("rightTens");
+rightOnesDigit = document.getElementById("rightOnes");
 
 function displayNumber(Digit, segmentArray) {}
 
 function incrementLeft() {}
 
 function incrementRight() {}
+
+function resetScoreboard() {}

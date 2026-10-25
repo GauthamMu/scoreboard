@@ -87,7 +87,13 @@ function incrementLeft() {
   displayNumber(digitArray[leftScoreOnes], leftOnesDigit);
 }
 
-function incrementRight() {}
+function incrementRight() {
+  rightScore++;
+  rightScoreTens = Math.floor(rightScore / 10);
+  rightScoreOnes = rightScore % 10;
+  displayNumber(digitArray[rightScoreTens], rightTensDigit);
+  displayNumber(digitArray[rightScoreOnes], rightOnesDigit);
+}
 
 function resetScoreboard() {
   displayNumber(digit0, leftTensDigit);

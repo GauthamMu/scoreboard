@@ -29,7 +29,9 @@ let digit0,
   leftTensDigit,
   leftOnesDigit,
   rightTensDigit,
-  rightOnesDigit;
+  rightOnesDigit,
+  leftScore,
+  rightScore;
 
 document.addEventListener("DOMContentLoaded", function () {
   // digits
@@ -61,15 +63,18 @@ document.addEventListener("DOMContentLoaded", function () {
   leftOnesDigit = document.getElementById("leftOnes");
   rightTensDigit = document.getElementById("rightTens");
   rightOnesDigit = document.getElementById("rightOnes");
+
+  leftScore = 0;
+  rightScore = 0;
 });
 
 function displayNumber(JSdigit, HTMLdigit) {
   console.log(JSdigit);
   segments = HTMLdigit.children;
   for (let i = 0; i < segments.length; i++) {
+    console.log(JSdigit);
     console.log(JSdigit.returnArray());
     if (JSdigit.returnArray()[i] == true) {
-      console.log("This segment is true");
       segments[i].style.display = "absolute";
     } else {
       segments[i].style.display = "none";
@@ -77,7 +82,17 @@ function displayNumber(JSdigit, HTMLdigit) {
   }
 }
 
-function incrementLeft() {}
+function incrementLeft() {
+  leftScore++;
+  leftScoreTens = Math.floor(leftScore / 10);
+  leftScoreOnes = leftScore % 10;
+  console.log(leftScore);
+  console.log(digitArray);
+  console.log(leftScoreTens);
+  console.log(leftScoreOnes);
+  displayNumber(digitArray[leftScoreTens], leftTensDigit);
+  displayNumber(digitArray[leftScoreOnes], leftOnesDigit);
+}
 
 function incrementRight() {}
 
@@ -87,5 +102,3 @@ function resetScoreboard() {
   displayNumber(digit0, rightTensDigit);
   displayNumber(digit0, rightOnesDigit);
 }
-
-// resetScoreboard();

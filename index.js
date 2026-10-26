@@ -96,6 +96,8 @@ function incrementRight() {
 }
 
 function resetScoreboard() {
+	leftScore = 0;
+	rightScore = 0;
   displayNumber(digit0, leftTensDigit);
   displayNumber(digit0, leftOnesDigit);
   displayNumber(digit0, rightTensDigit);
